@@ -27,13 +27,16 @@ jobs:
       - name: Step1
         run: | 
           echo $GITHUB_WORKSPACE
-          ls
           pwd
 
       - name: Step2
         run: | 
-          ls
+          echo $HOME
 
       - name: Step3
         run: | 
           ls $HOME
+
+      - name: Step4
+        run: | 
+          ps
