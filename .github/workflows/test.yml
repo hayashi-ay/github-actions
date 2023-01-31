@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Step1
         run: | 
-          echo $GITHUB_WORKSPACE
+          echo ${{ github }}
           pwd
 
       - name: Step2
