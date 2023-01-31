@@ -1,0 +1,16 @@
+name: Context Workflow
+run-name: Show Context
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  github-context:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Github Context
+        run: | 
+          echo github.action: ${{ github.action }}
