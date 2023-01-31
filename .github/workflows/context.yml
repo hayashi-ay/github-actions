@@ -53,6 +53,18 @@ jobs:
           echo github.workflow_sha: ${{ github.workflow_sha }}
           echo github.workspace: ${{ github.workspace }}
 
+  step-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate 0 or 1
+        id: generate_number
+        run:  echo "random_number=$(($RANDOM % 2))" >> $GITHUB_OUTPUT
+      - name: Step Context
+        run: | 
+          echo steps.step1.conclusion: ${{ steps.step1.conclusion }}
+          echo steps.step1.outcome: ${{ steps.step1.outcome }}
+          echo steps.step1.outputs.random_number: ${{ steps.step1.outputs.random_number }}
+
   runner-context:
     strategy:
       matrix:
@@ -84,7 +96,6 @@ jobs:
       - name: Strategy Context
         run: | 
           echo strategy.fail-fast: ${{ strategy.fail-fast }}
-          echo strategy.fail: ${{ strategy.fail }}
           echo strategy.job-index: ${{ strategy.job-index }}
           echo strategy.job-total: ${{ strategy.job-total }}
           echo strategy.max-parallel: ${{ strategy.max-parallel }}
