@@ -81,3 +81,10 @@ jobs:
         run: | 
           echo matrix.os: ${{ matrix.os }}
           echo matrix.node: ${{ matrix.node }}
+      - name: Strategy Context
+        run: | 
+          echo strategy.fail-fast: ${{ strategy.fail-fast }}
+          echo strategy.fail: ${{ strategy.fail }}
+          echo strategy.job-index: ${{ strategy.job-index }}
+          echo strategy.job-total: ${{ strategy.job-total }}
+          echo strategy.max-parallel: ${{ strategy.max-parallel }}
