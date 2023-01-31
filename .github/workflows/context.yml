@@ -8,7 +8,9 @@ on:
 
 jobs:
   github-context:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
       - name: Github Context
