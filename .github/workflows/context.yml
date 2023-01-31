@@ -68,3 +68,16 @@ jobs:
           echo runner.temp: ${{ runner.temp }}
           echo runner.tool_cache: ${{ runner.tool_cache }}
           echo runner.debug: ${{ runner.debug }}
+
+  matrix-context:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [14, 16]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Matrix Context
+        run: | 
+          echo matrix.os: ${{ matrix.os }}
+          echo matrix.node: ${{ matrix.node }}
