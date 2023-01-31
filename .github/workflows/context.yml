@@ -2,8 +2,8 @@ name: Context Workflow
 run-name: Show Context
 
 on:
-  push:
-    branches: [ "main" ]
+  #push:
+  #  branches: [ "main" ]
   workflow_dispatch:
 
 jobs:

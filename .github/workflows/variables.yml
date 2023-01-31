@@ -1,0 +1,16 @@
+name: Context Workflow
+run-name: Show Context
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Default environment variables
+        run: | 
+          echo CI: $CI
