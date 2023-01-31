@@ -24,9 +24,16 @@ jobs:
     steps:
 
       # Runs a single command using the runners shell
-      - name: Run a multi-line script
+      - name: Step1
         run: | 
           echo $GITHUB_WORKSPACE
           ls
           pwd
 
+      - name: Step2
+        run: | 
+          ls
+
+      - name: Step3
+        run: | 
+          ls $HOME
