@@ -16,6 +16,7 @@ jobs:
           echo ${{ github }}
           pwd
           cat $GITHUB_ENV
+          sysctl kernel.sched_latency_ns
 
       - name: Step2
         run: | 
