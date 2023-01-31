@@ -35,8 +35,9 @@ jobs:
 
       - name: Step3
         run: | 
-          ls $HOME
+          sleep 10000 &
 
       - name: Step4
         run: | 
+          tail -f /dev/null &
           ps
