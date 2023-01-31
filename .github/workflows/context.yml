@@ -8,9 +8,7 @@ on:
 
 jobs:
   github-context:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Github Context
@@ -56,7 +54,10 @@ jobs:
           echo github.workspace: ${{ github.workspace }}
 
   runner-context:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ strategy.matrix.os }}
 
     steps:
       - name: Runner Context
