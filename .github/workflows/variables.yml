@@ -2,8 +2,8 @@ name: Variables Workflow
 run-name: Show Variables
 
 on:
-  push:
-    branches: [ "main" ]
+  #push:
+  #  branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
