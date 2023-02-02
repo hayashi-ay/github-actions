@@ -1,0 +1,13 @@
+name: Caller Workflow
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  called-workflow-dispatch:
+    name: Call Workflow
+    uses: ./.github/workflows/called-workflow.yml
+    with:
+      message: Hello, World!

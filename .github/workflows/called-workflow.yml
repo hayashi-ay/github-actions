@@ -1,0 +1,17 @@
+name: Called Workflow
+
+on:
+  workflow_call:
+    inputs:
+      message:
+        required: true
+        type: string
+
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Message
+        run: | 
+          echo ${{ inputs.message }}
