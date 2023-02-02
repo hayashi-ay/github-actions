@@ -11,3 +11,18 @@ jobs:
     uses: ./.github/workflows/called-workflow.yml
     with:
       message: Hello, World!
+  called-workflow-dispatch2:
+    name: Call Workflow
+    uses: ./.github/workflows/called-workflow.yml
+    with:
+      message: ${{ 'hogehoge' }}
+  called-workflow-dispatch3:
+    name: Call Workflow
+    uses: ./.github/workflows/called-workflow.yml
+    with:
+      message: ${{ github.ref == 'refs/heads/main' && 'main' || 'else' }}
+  called-workflow-dispatch4:
+    name: Call Workflow
+    uses: ./.github/workflows/called-workflow.yml
+    with:
+      message: ${{ github.ref == 'refs/heads/master' && 'master' || 'else' }}
