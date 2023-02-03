@@ -1,0 +1,19 @@
+name: Action Variables
+run-name: Show Action Variables
+
+env:
+  VARIABLE_SCOPE: ${{ variables.VARIABLE_SCOPE }}
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Default environment variables
+        run: | 
+          echo ${{ env.VARIABLE_SCOPE }}
