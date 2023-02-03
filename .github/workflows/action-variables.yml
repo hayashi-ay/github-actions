@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Default environment variables
+      - name: env
         run: | 
           echo ${{ env.VARIABLE_SCOPE }}
+      - name: vars
+        run: | 
+          echo ${{ vars.VARIABLE_SCOPE }}
