@@ -21,6 +21,7 @@ jobs:
       - name: vars
         run: | 
           echo vars.VARIABLE_SCOPE: ${{ vars.VARIABLE_SCOPE }}
+          echo env.WORKFLOW_VARIABLE_SCOPE: ${{ env.WORKFLOW_VARIABLE_SCOPE }}
 
   variables2:
     runs-on: ubuntu-latest
@@ -33,3 +34,4 @@ jobs:
       - name: vars
         run: | 
           echo vars.VARIABLE_SCOPE: ${{ vars.VARIABLE_SCOPE }}
+          echo env.WORKFLOW_VARIABLE_SCOPE: ${{ env.WORKFLOW_VARIABLE_SCOPE }}
