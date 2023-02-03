@@ -2,7 +2,7 @@ name: Action Variables
 run-name: Show Action Variables
 
 env:
-  VARIABLE_SCOPE: ${{ vars.VARIABLE_SCOPE }}
+  WORKFLOW_VARIABLE_SCOPE: ${{ vars.VARIABLE_SCOPE }}
 
 on:
   push:
@@ -16,10 +16,11 @@ jobs:
     steps:
       - name: env
         run: | 
-          echo ${{ env.VARIABLE_SCOPE }}
+          echo env.VARIABLE_SCOPE: ${{ env.VARIABLE_SCOPE }}
+          echo env.WORKFLOW_VARIABLE_SCOPE: ${{ env.WORKFLOW_VARIABLE_SCOPE }}
       - name: vars
         run: | 
-          echo ${{ vars.VARIABLE_SCOPE }}
+          echo vars.VARIABLE_SCOPE: ${{ vars.VARIABLE_SCOPE }}
 
   variables2:
     runs-on: ubuntu-latest
@@ -27,7 +28,8 @@ jobs:
     steps:
       - name: env
         run: | 
-          echo ${{ env.VARIABLE_SCOPE }}
+          echo env.VARIABLE_SCOPE: ${{ env.VARIABLE_SCOPE }}
+          echo env.WORKFLOW_VARIABLE_SCOPE: ${{ env.WORKFLOW_VARIABLE_SCOPE }}
       - name: vars
         run: | 
-          echo ${{ vars.VARIABLE_SCOPE }}
+          echo vars.VARIABLE_SCOPE: ${{ vars.VARIABLE_SCOPE }}
