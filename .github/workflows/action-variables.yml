@@ -20,11 +20,21 @@ jobs:
           echo env.VARIABLE_SCOPE: ${{ env.VARIABLE_SCOPE }}
           echo env.WORKFLOW_VARIABLE_SCOPE: ${{ env.WORKFLOW_VARIABLE_SCOPE }}
 
-  variables2:
+  prod:
     runs-on: ubuntu-latest
     environment: prod
     steps:
       - name: use environment(prod)
+        run: | 
+          echo vars.VARIABLE_SCOPE: ${{ vars.VARIABLE_SCOPE }}
+          echo env.VARIABLE_SCOPE: ${{ env.VARIABLE_SCOPE }}
+          echo env.WORKFLOW_VARIABLE_SCOPE: ${{ env.WORKFLOW_VARIABLE_SCOPE }}
+
+  dev:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: use environment(dev)
         run: | 
           echo vars.VARIABLE_SCOPE: ${{ vars.VARIABLE_SCOPE }}
           echo env.VARIABLE_SCOPE: ${{ env.VARIABLE_SCOPE }}
