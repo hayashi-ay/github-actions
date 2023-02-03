@@ -2,7 +2,7 @@ name: Action Variables
 run-name: Show Action Variables
 
 env:
-  VARIABLE_SCOPE: ${{ variables.VARIABLE_SCOPE }}
+  VARIABLE_SCOPE: ${{ secrets.VARIABLE_SCOPE }}
 
 on:
   push:
