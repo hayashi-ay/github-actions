@@ -39,3 +39,13 @@ jobs:
           echo vars.VARIABLE_SCOPE: ${{ vars.VARIABLE_SCOPE }}
           echo env.VARIABLE_SCOPE: ${{ env.VARIABLE_SCOPE }}
           echo env.WORKFLOW_VARIABLE_SCOPE: ${{ env.WORKFLOW_VARIABLE_SCOPE }}
+
+  unknown:
+    runs-on: ubuntu-latest
+    environment: unknown
+    steps:
+      - name: use environment(unknown)
+        run: | 
+          echo vars.VARIABLE_SCOPE: ${{ vars.VARIABLE_SCOPE }}
+          echo env.VARIABLE_SCOPE: ${{ env.VARIABLE_SCOPE }}
+          echo env.WORKFLOW_VARIABLE_SCOPE: ${{ env.WORKFLOW_VARIABLE_SCOPE }}
