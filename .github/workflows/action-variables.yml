@@ -20,3 +20,14 @@ jobs:
       - name: vars
         run: | 
           echo ${{ vars.VARIABLE_SCOPE }}
+
+  variables2:
+    runs-on: ubuntu-latest
+    environment: prod
+    steps:
+      - name: env
+        run: | 
+          echo ${{ env.VARIABLE_SCOPE }}
+      - name: vars
+        run: | 
+          echo ${{ vars.VARIABLE_SCOPE }}
