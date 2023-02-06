@@ -5,8 +5,8 @@ env:
   WORKFLOW_VARIABLE_SCOPE: ${{ vars.VARIABLE_SCOPE }}
 
 on:
-  push:
-    branches: [ "main" ]
+  #push:
+  #  branches: [ "main" ]
   workflow_dispatch:
 
 jobs:

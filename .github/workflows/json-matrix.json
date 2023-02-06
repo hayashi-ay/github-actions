@@ -1,0 +1,10 @@
+[
+	{
+	  "environment": "dev",
+	  "branch": "main"
+	},
+	{
+	  "environment": "prod",
+	  "branch": "release"
+	}
+]
