@@ -40,9 +40,9 @@ jobs:
           echo env.VARIABLE_SCOPE: ${{ env.VARIABLE_SCOPE }}
           echo env.WORKFLOW_VARIABLE_SCOPE: ${{ env.WORKFLOW_VARIABLE_SCOPE }}
 
-  unknown:
+  no-exist:
     runs-on: ubuntu-latest
-    environment: unknown
+    environment: no-exist
     steps:
       - name: use environment(unknown)
         run: | 
