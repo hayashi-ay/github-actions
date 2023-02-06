@@ -1,0 +1,2 @@
+## 挙動
+environmentに存在していない値を設定すると当該action実行時にEnvironmentsに設定した値が自動的に追加される。
