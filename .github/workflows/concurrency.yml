@@ -6,6 +6,8 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
+concurrency: concurrency-group
+
 jobs:
   job1:
     runs-on: ubuntu-latest
