@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
-concurrency: concurrency-group
+#concurrency: concurrency-group
 
 jobs:
   job1:
