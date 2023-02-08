@@ -24,26 +24,38 @@ jobs:
     steps:
       - name: Job2
         run: | 
-          sleep 5
+          for i in {1..1000000}
+            do
+            echo "Welcome $i times" > /dev/null
+          done
           echo "job2 completed"
   job3:
     runs-on: ubuntu-latest
     steps:
       - name: Job3
         run: | 
-          sleep 5
+          for i in {1..1000000}
+            do
+            echo "Welcome $i times" > /dev/null
+          done
           echo "job3 completed"
   job4:
     runs-on: ubuntu-latest
     steps:
       - name: Job4
         run: | 
-          sleep 5
+          for i in {1..1000000}
+            do
+            echo "Welcome $i times" > /dev/null
+          done
           echo "job4 completed"
   job5:
     runs-on: ubuntu-latest
     steps:
       - name: Job5
         run: | 
-          sleep 5
+          for i in {1..1000000}
+            do
+            echo "Welcome $i times" > /dev/null
+          done
           echo "job5 completed"
