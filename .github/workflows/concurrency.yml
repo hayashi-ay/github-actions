@@ -1,0 +1,44 @@
+name: Concurrency Workflow
+run-name: Concurrency
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job1
+        run: | 
+          sleep 5
+          echo "job1 completed"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job2
+        run: | 
+          sleep 5
+          echo "job2 completed"
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job3
+        run: | 
+          sleep 5
+          echo "job3 completed"
+  job4:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job4
+        run: | 
+          sleep 5
+          echo "job4 completed"
+  job5:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Job5
+        run: | 
+          sleep 5
+          echo "job5 completed"
