@@ -6,7 +6,9 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
 
-concurrency: concurrency-group
+concurrency:
+  group: concurrency-group
+  cancel-in-progress: true
 
 jobs:
   job1:
