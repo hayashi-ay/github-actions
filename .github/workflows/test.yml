@@ -15,6 +15,13 @@ jobs:
         run: |
           echo $SHELL
           $SHELL --version
+      - name: check
+        run: |
+          code=42
+          if [[ $code -ne 21 ]]; then
+            echo "status code: $code"
+            exit 1
+          fi
       - name: Step1
         run: | 
           node --version
