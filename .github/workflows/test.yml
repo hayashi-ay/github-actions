@@ -2,8 +2,8 @@ name: Test Workflow
 run-name: run-name
 
 on:
-  #push:
-  #  branches: [ "main" ]
+  push:
+    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Shell
+        run: |
+          echo $SHELL
       - name: Step1
         run: | 
           node --version
