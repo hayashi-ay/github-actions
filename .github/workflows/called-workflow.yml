@@ -15,3 +15,5 @@ jobs:
       - name: Say Message
         run: | 
           echo ${{ inputs.message }}
+          echo $SHELL
+          $SHELL --version
