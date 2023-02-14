@@ -65,9 +65,9 @@ jobs:
   #        tail -f /dev/null &
   #        ps
   #cpu-info:
-    runs-on: ubuntu-latest
+  #  runs-on: ubuntu-latest
 
-    steps:
-      - name: CPU Info
-        run: | 
-          lscpu
+  #  steps:
+  #    - name: CPU Info
+  #      run: | 
+  #        lscpu
