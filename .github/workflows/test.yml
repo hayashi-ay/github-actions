@@ -18,7 +18,7 @@ jobs:
       - name: check
         run: |
           code=42
-          if [[ $code -ne 21 ]]; then
+          if [[ $code -ne 42 ]]; then
             echo "status code: $code"
             exit 1
           fi
@@ -43,28 +43,28 @@ jobs:
           tail -f /dev/null &
           ps
 
-  job2:
-    runs-on: ubuntu-latest
+  #job2:
+  #  runs-on: ubuntu-latest
 
-    steps:
-      - name: Step1
-        run: | 
-          echo $GITHUB_WORKSPACE
-          pwd
+  #  steps:
+  #    - name: Step1
+  #      run: | 
+  #        echo $GITHUB_WORKSPACE
+  #        pwd
 
-      - name: Step2
-        run: | 
-          echo $HOME
+  #    - name: Step2
+  #      run: | 
+  #        echo $HOME
 
-      - name: Step3
-        run: | 
-          sleep 10000 &
+  #    - name: Step3
+  #      run: | 
+  #        sleep 10000 &
 
-      - name: Step4
-        run: | 
-          tail -f /dev/null &
-          ps
-  cpu-info:
+  #    - name: Step4
+  #      run: | 
+  #        tail -f /dev/null &
+  #        ps
+  #cpu-info:
     runs-on: ubuntu-latest
 
     steps:
