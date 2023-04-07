@@ -27,20 +27,25 @@ jobs:
         # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings
         run: |
           usage=$(echo '${{ steps.get_actions_billing_for_user.outputs.data }}')
-          $(echo $usage | jq '{total_minutes_used: .total_minutes_used, total_paid_minutes_used: .total_paid_minutes_used, included_minutes: .included_minutes, UBUNTU: .minutes_used_breakdown.UBUNTU, MACOS: .minutes_used_breakdown.MACOS, WINDOWS: .minutes_used_breakdown.WINDOWS}')
+          total_minutes_used=$(echo "$usage" | jq '.total_minutes_used')
+          total_paid_minutes_used=$(echo "$usage" | jq '.total_paid_minutes_used')
+          included_minutes=$(echo "$usage" | jq '.included_minutes')
+          UBUNTU=$(echo "$usage" | jq '.minutes_used_breakdown.UBUNTU')
+          MACOS=$(echo "$usage" | jq '.minutes_used_breakdown.MACOS')
+          WINDOWS=$(echo "$usage" | jq '.minutes_used_breakdown.WINDOWS')
           echo $total_minutes_used
           echo 'body<<EOF' >> $GITHUB_OUTPUT
           echo "## Github Actions Usage
           Metric | Value
           -- | --
-          Total Minutes Used | 305
-          Total Paid Minutes Used | 0
-          Included Minutes | 3000
+          Total Minutes Used | $total_minutes_used
+          Total Paid Minutes Used | $total_paid_minutes_used
+          Included Minutes | $included_minutes
           |  
           Minutes Used Breakdown |  
-          Ubuntu | 205
-          macOS | 10
-          Windows | 90" >> $GITHUB_OUTPUT
+          Ubuntu | $UBUNTU
+          macOS | $MACOS
+          Windows | $WINDOWS" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
   find-issue:
