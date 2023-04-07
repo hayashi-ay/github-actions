@@ -36,7 +36,7 @@ jobs:
         title-includes: 'Usage Report'
     - name: a
       run: |
-        issue_number = $(echo '${{ steps.find-issues.outputs.issues }}' | jq '.[0].number')
+        issue_number=$(echo '${{ steps.find-issues.outputs.issues }}' | jq '.[0].number')
         echo $issue_number
         echo '${{ needs.get-actions-usage.outputs.usage }}'
 
