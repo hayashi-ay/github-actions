@@ -12,7 +12,8 @@ jobs:
     outputs:
       usage: ${{ steps.get_actions_billing_for_user.outputs.data }}
     steps:
-      - uses: octokit/request-action@v2.x
+      - name: Get Actions Billing For User
+        uses: octokit/request-action@v2.x
         id: get_actions_billing_for_user
         with:
           route: GET /users/{username}/settings/billing/actions
@@ -20,6 +21,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
       - run: "echo latest release: '${{ fromJson(steps.get_actions_billing_for_user.outputs.data).total_minutes_used }}'"
+      - name: Create Issue body
+        run: |
+          echo hoge
 
   find-issue:
     runs-on: ubuntu-latest
@@ -47,10 +51,22 @@ jobs:
     needs: find-issue
     if: always()
     steps:
-      - name: update-issue
+      - name: update-issue-test
         run: |
           echo '${{ needs.find-issue.outputs.issue-number }}'
           echo '${{ needs.get-actions-usage.outputs.usage }}'
+      - name: Update Issue
+        uses: actions-cool/issues-helper@v3
+        id: update-issues
+        with:
+          actions: 'find-issues'
+          token: ${{ secrets.PAT }}
+          repo: hayashi-ay/e-book
+          issue-number: ${{ needs.find-issue.outputs.issue-number }}
+          title: 'Usage Report'
+          update-mode: 'replace'
+          body: 'xxxyyy'
+
     #- name: Create issue
     #  uses: actions-cool/issues-helper@v3
     #  with:
