@@ -1,8 +1,7 @@
 name: Usage Report
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -74,10 +73,6 @@ jobs:
     needs: [find-issue, get-actions-usage]
     if: ${{ needs.find-issue.outputs.issue-number != 'null' }}
     steps:
-      - name: update-issue-test
-        run: |
-          echo '${{ needs.find-issue.outputs.issue-number }}'
-          echo '${{ needs.get-actions-usage.outputs.issue-body }}'
       - name: Update Issue
         uses: actions-cool/issues-helper@v3
         id: update-issues
