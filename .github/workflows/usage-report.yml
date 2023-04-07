@@ -64,10 +64,10 @@ jobs:
           token: ${{ secrets.PAT }}
           repo: hayashi-ay/e-book
           issue-number: '${{ needs.find-issue.outputs.issue-number }}'
-          title: 'Usage Reportx'
+          title: 'Usage Report'
           update-mode: 'replace'
           #body: '${{ needs.get-actions-usage.outputs.issue-body }}'
-          body: 'x'
+          body: 'yyy'
 
   create-issue:
     runs-on: ubuntu-latest
