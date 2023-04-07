@@ -9,6 +9,8 @@ jobs:
 
   get-actions-usage:
     runs-on: ubuntu-latest
+    outputs:
+      usage: ${{ steps.get_actions_billing_for_user.outputs.data }}
     steps:
       - uses: octokit/request-action@v2.x
         id: get_actions_billing_for_user
@@ -34,7 +36,7 @@ jobs:
     - name: a
       run: |
         echo ${{ steps.find-issues.outputs.data }}
-        echo ${{ jobs.get_actions_billing_for_user.outputs.data }}
+        echo ${{ needs.get-actions-usage.outputs.usage }}
     #- name: Create issue
     #  uses: actions-cool/issues-helper@v3
     #  with:
