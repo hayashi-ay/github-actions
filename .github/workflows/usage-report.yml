@@ -19,9 +19,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
       - run: "echo latest release: '${{ fromJson(steps.get_actions_billing_for_user.outputs.data).total_minutes_used }}'"
 
-
   update-issue:
     runs-on: ubuntu-latest
+    needs: get-actions-usage
     steps:
     - name: Find issues
       uses: actions-cool/issues-helper@v3
@@ -31,7 +31,10 @@ jobs:
         token: ${{ secrets.PAT }}
         issue-state: 'open'
         title-includes: 'Usage Report'
-    - run: echo '${{ steps.find-issues.outputs.data }}'
+    - name: a
+      run: |
+        echo ${{ steps.find-issues.outputs.data }}
+        echo ${{ jobs.get_actions_billing_for_user.outputs.data }}
     #- name: Create issue
     #  uses: actions-cool/issues-helper@v3
     #  with:
