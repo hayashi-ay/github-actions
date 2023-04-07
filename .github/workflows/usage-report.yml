@@ -35,7 +35,7 @@ jobs:
         title-includes: 'Usage Report'
     - name: a
       run: |
-        echo '${{ steps.find-issues.outputs.issue-number }}'
+        echo '${{ steps.find-issues.outputs.issues }}'
         echo '${{ needs.get-actions-usage.outputs.usage }}'
     #- name: Create issue
     #  uses: actions-cool/issues-helper@v3
