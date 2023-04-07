@@ -17,7 +17,7 @@ jobs:
           username: hayashi-ay
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
-      - run: "echo latest release: '${{ steps.get_actions_billing_for_user.outputs.data.total_minutes_used }}'"
+      - run: "echo latest release: '${{ fromJson(steps.get_actions_billing_for_user.outputs.data).total_minutes_used }}'"
 
 
   update-issue:
@@ -31,7 +31,7 @@ jobs:
         token: ${{ secrets.PAT }}
         issue-state: 'open'
         title-includes: 'Usage Report'
-    - run: '${{ steps.find-issues.outputs.data }}'
+    - run: echo '${{ steps.find-issues.outputs.data }}'
     #- name: Create issue
     #  uses: actions-cool/issues-helper@v3
     #  with:
