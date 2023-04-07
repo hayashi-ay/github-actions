@@ -66,8 +66,7 @@ jobs:
           issue-number: '${{ needs.find-issue.outputs.issue-number }}'
           title: 'Usage Report'
           update-mode: 'replace'
-          #body: '${{ needs.get-actions-usage.outputs.issue-body }}'
-          body: 'yyy'
+          body: '${{ needs.get-actions-usage.outputs.issue-body }}'
 
   create-issue:
     runs-on: ubuntu-latest
