@@ -9,7 +9,7 @@ jobs:
   logLatestRelease:
     runs-on: ubuntu-latest
     steps:
-      - uses: octokit/request-action@v2.1
+      - uses: octokit/request-action@v2.x
         id: get_actions_billing_for_user
         with:
           route: GET /users/{username}/settings/billing/actions
