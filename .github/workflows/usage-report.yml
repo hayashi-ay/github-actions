@@ -26,13 +26,10 @@ jobs:
         id: create_issue_body
         run: |
           `cat <<EOT > temp
-          \\\`\\\`\\\`shell
-          git fetch origin ${NEW_BRANCH}
-          git checkout ${NEW_BRANCH}
-          code --reuse-window ${ISSUE_NUM}/article.md ${ISSUE_NUM}/config.json
-          \\\`\\\`\\\`
+          a
+          b
           EOT`
-          echo "body=$(cat temp)" >> >> $GITHUB_OUTPUT
+          echo "body=$(cat temp)" >> $GITHUB_OUTPUT
 
   find-issue:
     runs-on: ubuntu-latest
