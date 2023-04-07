@@ -31,6 +31,7 @@ jobs:
       with:
         actions: 'find-issues'
         token: ${{ secrets.PAT }}
+        repo: hayashi-ay/e-book
         issue-state: 'open'
         title-includes: 'Usage Report'
     - name: a
