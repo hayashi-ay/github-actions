@@ -64,16 +64,22 @@ jobs:
           token: ${{ secrets.PAT }}
           repo: hayashi-ay/e-book
           issue-number: '${{ needs.find-issue.outputs.issue-number }}'
-          title: 'Usage Report'
+          title: 'Usage Reportx'
           update-mode: 'replace'
           #body: '${{ needs.get-actions-usage.outputs.issue-body }}'
           body: 'x'
 
-    #- name: Create issue
-    #  uses: actions-cool/issues-helper@v3
-    #  with:
-    #    actions: 'create-issue'
-    #    token: ${{ secrets.PAT }}
-    #    repo: hayashi-ay/e-book
-    #    title: 'test'
-    #    body: 'test'
+  create-issue:
+    runs-on: ubuntu-latest
+    needs: find-issue
+    if: false
+    steps:
+      - name: Create Issue
+        uses: actions-cool/issues-helper@v3
+        id: update-issues
+        with:
+          actions: 'update-issue'
+          token: ${{ secrets.PAT }}
+          repo: hayashi-ay/e-book
+          title: 'Usage Report'
+          body: 'x'
