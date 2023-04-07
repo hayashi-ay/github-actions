@@ -50,7 +50,7 @@ jobs:
 
   update-issue:
     runs-on: ubuntu-latest
-    needs: find-issue
+    needs: [find-issue, get-actions-usage]
     if: always()
     steps:
       - name: update-issue-test
