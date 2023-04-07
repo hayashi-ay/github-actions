@@ -38,10 +38,11 @@ jobs:
       run: |
         echo '${{ steps.find-issues.outputs.issues }}'
         echo '${{ needs.get-actions-usage.outputs.usage }}'
-    #- name: Create issue
-    #  uses: actions-cool/issues-helper@v3
-    #  with:
-    #    actions: 'create-issue'
-    #    token: ${{ secrets.PAT }}
-    #    title: 'test'
-    #    body: 'test'
+    - name: Create issue
+      uses: actions-cool/issues-helper@v3
+      with:
+        actions: 'create-issue'
+        token: ${{ secrets.PAT }}
+        repo: hayashi-ay/e-book
+        title: 'test'
+        body: 'test'
