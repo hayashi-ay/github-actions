@@ -26,17 +26,18 @@ jobs:
         id: create_issue_body
         run: |
           echo 'body=$(cat <<EOF
-            ## Github Actions Usage
-            Metric | Value
-            -- | --
-            Total Minutes Used | 305
-            Total Paid Minutes Used | 0
-            Included Minutes | 3000
-            |  
-            Minutes Used Breakdown |  
-            Ubuntu | 205
-            macOS | 10
-            Windows | 90") >> $GITHUB_OUTPUT
+          ## Github Actions Usage
+          Metric | Value
+          -- | --
+          Total Minutes Used | 305
+          Total Paid Minutes Used | 0
+          Included Minutes | 3000
+          |  
+          Minutes Used Breakdown |  
+          Ubuntu | 205
+          macOS | 10
+          Windows | 90
+          EOF)' >> $GITHUB_OUTPUT
 
   find-issue:
     runs-on: ubuntu-latest
