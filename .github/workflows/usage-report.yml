@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       usage: ${{ steps.get_actions_billing_for_user.outputs.data }}
+      issue-body: ${{ steps.create_issue_body.outputs.body }}
     steps:
       - name: Get Actions Billing For User
         uses: octokit/request-action@v2.x
@@ -22,8 +23,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
       - run: "echo latest release: '${{ fromJson(steps.get_actions_billing_for_user.outputs.data).total_minutes_used }}'"
       - name: Create Issue body
+        id: create_issue_body
         run: |
-          echo hoge
+          echo "body=issue_body" >> $GITHUB_OUTPUT
 
   find-issue:
     runs-on: ubuntu-latest
@@ -59,13 +61,13 @@ jobs:
         uses: actions-cool/issues-helper@v3
         id: update-issues
         with:
-          actions: 'find-issues'
+          actions: 'update-issues'
           token: ${{ secrets.PAT }}
           repo: hayashi-ay/e-book
-          issue-number: ${{ needs.find-issue.outputs.issue-number }}
+          issue-number: '${{ needs.find-issue.outputs.issue-number }}'
           title: 'Usage Report'
           update-mode: 'replace'
-          body: 'xxxyyy'
+          body: '${{ needs.get-actions-usage.outputs.issue-body }}'
 
     #- name: Create issue
     #  uses: actions-cool/issues-helper@v3
