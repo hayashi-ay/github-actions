@@ -49,7 +49,7 @@ jobs:
     steps:
       - name: update-issue
         run: |
-          echo '${{ needs.find-issue.outputs.issue-number }}'
+          echo ${{ needs.find-issue.outputs.issue-number }}
           echo '${{ needs.get-actions-usage.outputs.usage }}'
     #- name: Create issue
     #  uses: actions-cool/issues-helper@v3
