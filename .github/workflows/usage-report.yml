@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  logLatestRelease:
+  get-actions-usage:
     runs-on: ubuntu-latest
     steps:
       - uses: octokit/request-action@v2.x
@@ -18,3 +18,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
       - run: "echo latest release: '${{ steps.get_actions_billing_for_user.outputs.data }}'"
+
+  create-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create issue
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-issue'
+          token: ${{ secrets.PAT }}
+          title: 'test'
+          body: 'test'
