@@ -97,9 +97,9 @@ jobs:
     steps:
       - name: Create Issue
         uses: actions-cool/issues-helper@v3
-        id: update-issues
+        id: create-issue
         with:
-          actions: 'update-issue'
+          actions: 'create-issue'
           token: ${{ secrets.PAT }}
           repo: hayashi-ay/e-book
           title: 'Usage Report'
