@@ -25,20 +25,14 @@ jobs:
       - name: Create Issue body
         id: create_issue_body
         run: |
-          body=$(cat <<EOF
-          ## Github Actions Usage
-          Metric | Value
-          -- | --
-          Total Minutes Used | 305
-          Total Paid Minutes Used | 0
-          Included Minutes | 3000
-          |  
-          Minutes Used Breakdown |  
-          Ubuntu | 205
-          macOS | 10
-          Windows | 90
-          EOF)
-          echo "body=$body" >> >> $GITHUB_OUTPUT
+          `cat <<EOT > temp
+          \\\`\\\`\\\`shell
+          git fetch origin ${NEW_BRANCH}
+          git checkout ${NEW_BRANCH}
+          code --reuse-window ${ISSUE_NUM}/article.md ${ISSUE_NUM}/config.json
+          \\\`\\\`\\\`
+          EOT`
+          echo "body=$(cat temp)" >> >> $GITHUB_OUTPUT
 
   find-issue:
     runs-on: ubuntu-latest
