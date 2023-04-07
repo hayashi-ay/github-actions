@@ -17,4 +17,4 @@ jobs:
           username: hayashi-ay
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
-      - run: "echo latest release: '${{ steps.get_latest_release.outputs.data }}'"
+      - run: "echo latest release: '${{ steps.get_actions_billing_for_user.outputs.data }}'"
