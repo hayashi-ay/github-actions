@@ -25,7 +25,7 @@ jobs:
       - name: Create Issue body
         id: create_issue_body
         run: |
-          echo 'body=$(cat <<EOF
+          body=$(cat <<EOF
           ## Github Actions Usage
           Metric | Value
           -- | --
@@ -37,7 +37,8 @@ jobs:
           Ubuntu | 205
           macOS | 10
           Windows | 90
-          EOF)' >> $GITHUB_OUTPUT
+          EOF)
+          echo "body=$body" >> >> $GITHUB_OUTPUT
 
   find-issue:
     runs-on: ubuntu-latest
