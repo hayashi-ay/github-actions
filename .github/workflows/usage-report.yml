@@ -25,11 +25,9 @@ jobs:
       - name: Create Issue body
         id: create_issue_body
         run: |
-          `cat <<EOT > temp
-          a
-          b
-          EOT`
-          echo "body=$(cat temp)" >> $GITHUB_OUTPUT
+          echo 'body<<EOF' >> $GITHUB_OUTPUT
+          echo "a" >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
 
   find-issue:
     runs-on: ubuntu-latest
