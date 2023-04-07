@@ -56,7 +56,6 @@ jobs:
       - name: update-issue-test
         run: |
           echo '${{ needs.find-issue.outputs.issue-number }}'
-          echo '${{ needs.get-actions-usage.outputs.usage }}'
       - name: Update Issue
         uses: actions-cool/issues-helper@v3
         id: update-issues
@@ -67,7 +66,8 @@ jobs:
           issue-number: '${{ needs.find-issue.outputs.issue-number }}'
           title: 'Usage Report'
           update-mode: 'replace'
-          body: '${{ needs.get-actions-usage.outputs.issue-body }}'
+          #body: '${{ needs.get-actions-usage.outputs.issue-body }}'
+          body: 'x'
 
     #- name: Create issue
     #  uses: actions-cool/issues-helper@v3
