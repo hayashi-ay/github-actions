@@ -24,11 +24,20 @@ jobs:
       - run: "echo latest release: '${{ fromJson(steps.get_actions_billing_for_user.outputs.data).total_minutes_used }}'"
       - name: Create Issue body
         id: create_issue_body
+        # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings
         run: |
           echo 'body<<EOF' >> $GITHUB_OUTPUT
-          echo "a
-          b
-          " >> $GITHUB_OUTPUT
+          echo "## Github Actions Usage
+          Metric | Value
+          -- | --
+          Total Minutes Used | 305
+          Total Paid Minutes Used | 0
+          Included Minutes | 3000
+          |  
+          Minutes Used Breakdown |  
+          Ubuntu | 205
+          macOS | 10
+          Windows | 90" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
   find-issue:
