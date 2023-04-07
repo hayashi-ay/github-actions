@@ -19,13 +19,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
       - run: "echo latest release: '${{ steps.get_actions_billing_for_user.outputs.data }}'"
 
-  create-issue:
+
+  update-issue:
     runs-on: ubuntu-latest
     steps:
-      - name: Create issue
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: 'create-issue'
-          token: ${{ secrets.PAT }}
-          title: 'test'
-          body: 'test'
+    - name: Find issues
+      uses: actions-cool/issues-helper@v3
+      id: find-issues
+      with:
+        actions: 'find-issues'
+        token: ${{ secrets.PAT }}
+        issue-state: 'open'
+        title-includes: 'Usage Report'
+    - run: '${{ steps.find-issues.outputs.data }}'
+    #- name: Create issue
+    #  uses: actions-cool/issues-helper@v3
+    #  with:
+    #    actions: 'create-issue'
+    #    token: ${{ secrets.PAT }}
+    #    title: 'test'
+    #    body: 'test'
