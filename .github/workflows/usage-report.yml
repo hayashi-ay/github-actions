@@ -17,7 +17,7 @@ jobs:
           username: hayashi-ay
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
-      - run: "echo latest release: '${{ steps.get_actions_billing_for_user.outputs.data }}'"
+      - run: "echo latest release: '${{ steps.get_actions_billing_for_user.outputs.data.total_minutes_used }}'"
 
 
   update-issue:
