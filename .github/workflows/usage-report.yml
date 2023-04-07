@@ -1,0 +1,19 @@
+name: Usage Report
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  logLatestRelease:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: octokit/request-action@v2.1
+        id: get_actions_billing_for_user
+        with:
+          route: GET /users/{username}/settings/billing/actions
+          username: hayashi-ay
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+      - run: "echo latest release: '${{ steps.get_latest_release.outputs.data }}'"
