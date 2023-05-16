@@ -1,0 +1,17 @@
+@host = http://localhost:4000
+@token = your token
+@chennelTitle = new-channel
+
+###
+GET {{host}}/api/chats
+authorization: Bearer {{token}}
+content-type: application/json
+
+###
+PUT {{host}}/api/chats/{{chennelTitle}}
+content-type: application/json
+authorization: Bearer {{token}}
+
+{
+  "title": "new-channel"
+}
