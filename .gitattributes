@@ -1,1 +1,2 @@
 *.http linguist-language=yaml
+top.http linguist-language=js
