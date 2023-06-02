@@ -12,6 +12,7 @@ jobs:
 
     steps:
       - name: Shell
+        shell: bash {0}
         continue-on-error: true
         run: |
           which false
