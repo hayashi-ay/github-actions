@@ -14,6 +14,6 @@ jobs:
       - name: Shell
         run: |
           which false
-          false && true
+          false; true;
       - name: sucess
         run: echo "sucess"
