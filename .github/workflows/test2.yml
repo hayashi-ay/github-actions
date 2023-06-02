@@ -1,0 +1,19 @@
+name: Test2 Workflow
+run-name: run-name
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Shell
+        run: |
+          which false
+          false
+      - name: sucess
+        run: echo "sucess"
