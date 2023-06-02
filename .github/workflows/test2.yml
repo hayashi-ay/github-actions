@@ -12,8 +12,10 @@ jobs:
 
     steps:
       - name: Shell
+        continue-on-error: true
         run: |
           which false
+          echo "after false"
           false; true;
       - name: sucess
         run: echo "sucess"
