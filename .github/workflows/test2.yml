@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: background exec
+        run: |
+          false &
+          echo "after false"
       - name: run bash without -e option
         shell: bash {0}
         run: |
