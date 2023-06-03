@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: bg
+        shell: bash {0}
+        run: |
+          bg
+          sleep 10 &
+          bg
       - name: ps
         run: ps
       - name: lsof
