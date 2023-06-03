@@ -11,12 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Shell
+      - name: run bash without -e option
         shell: bash {0}
         run: |
-          which false
-          false;
+          false
           echo "after false"
-          false; true;
       - name: sucess
         run: echo "sucess"
