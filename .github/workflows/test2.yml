@@ -11,6 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: ps
+        run: ps
+      - name: lsof
+        run: which lsof
       - name: background exec
         run: |
           false &
